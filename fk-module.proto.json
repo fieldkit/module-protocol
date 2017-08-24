@@ -1,0 +1,150 @@
+{
+  "nested": {
+    "fk_module": {
+      "nested": {
+        "ModuleType": {
+          "values": {
+            "SENSOR": 0,
+            "COMMUNICATIONS": 1
+          }
+        },
+        "ReadingState": {
+          "values": {
+            "IDLE": 0,
+            "BUSY": 1,
+            "DONE": 2
+          }
+        },
+        "QueryCapabilities": {
+          "fields": {
+            "version": {
+              "type": "int64",
+              "id": 1
+            }
+          }
+        },
+        "Capabilities": {
+          "fields": {
+            "version": {
+              "type": "int32",
+              "id": 1
+            },
+            "type": {
+              "type": "ModuleType",
+              "id": 2
+            },
+            "name": {
+              "type": "string",
+              "id": 3
+            }
+          }
+        },
+        "SensorCapabilities": {
+          "fields": {
+            "numberOfReadings": {
+              "type": "int32",
+              "id": 1
+            },
+            "readings": {
+              "rule": "repeated",
+              "type": "SensorReadingMeta",
+              "id": 2
+            }
+          }
+        },
+        "SensorReadingMeta": {
+          "fields": {
+            "index": {
+              "type": "int32",
+              "id": 1
+            },
+            "name": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "BeginTakeReadings": {
+          "fields": {
+            "index": {
+              "type": "int32",
+              "id": 1
+            }
+          }
+        },
+        "QueryReadingStatus": {
+          "fields": {}
+        },
+        "ReadingStatus": {
+          "fields": {
+            "state": {
+              "type": "ReadingState",
+              "id": 1
+            }
+          }
+        },
+        "SensorReadings": {
+          "fields": {
+            "time": {
+              "type": "int64",
+              "id": 1
+            },
+            "readings": {
+              "rule": "repeated",
+              "type": "SensorReading",
+              "id": 2
+            }
+          }
+        },
+        "SensorReading": {
+          "fields": {
+            "index": {
+              "type": "int32",
+              "id": 1
+            },
+            "value": {
+              "type": "float",
+              "id": 2
+            }
+          }
+        },
+        "WireMessageQuery": {
+          "fields": {
+            "queryCapabilities": {
+              "type": "QueryCapabilities",
+              "id": 1
+            },
+            "beginTakeReadings": {
+              "type": "BeginTakeReadings",
+              "id": 2
+            },
+            "queryReadingStatus": {
+              "type": "QueryReadingStatus",
+              "id": 3
+            }
+          }
+        },
+        "WireMessageReply": {
+          "fields": {
+            "capabilities": {
+              "type": "Capabilities",
+              "id": 1
+            },
+            "sensorCapabilities": {
+              "type": "SensorCapabilities",
+              "id": 2
+            },
+            "readingStatus": {
+              "type": "ReadingStatus",
+              "id": 3
+            },
+            "sensorReadings": {
+              "type": "SensorReadings",
+              "id": 4
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+syntax = "proto3";
+package fk_module;
+
+enum ModuleType {
+  SENSOR = 0;
+  COMMUNICATIONS = 1;
+}
+
+enum ReadingState {
+  IDLE = 0;
+  BUSY = 1;
+  DONE = 2;
+}
+
+message QueryCapabilities {
+  int64 version = 1;
+}
+
+message Capabilities {
+  int32 version = 1;
+  ModuleType type = 2;
+  string name = 3;
+}
+
+message SensorCapabilities {
+  int32 numberOfReadings = 1;
+  repeated SensorReadingMeta readings = 2;
+}
+
+message SensorReadingMeta {
+  int32 index = 1;
+  string name = 2;
+}
+
+
+message BeginTakeReadings {
+  int32 index = 1;
+}
+
+message QueryReadingStatus {
+}
+
+message ReadingStatus {
+  ReadingState state = 1;
+}
+
+message SensorReadings {
+  int64 time = 1;
+  repeated SensorReading readings = 2;
+}
+
+message SensorReading  {
+  int32 index = 1;
+  float value = 2;
+}
+
+message WireMessageQuery {
+  QueryCapabilities queryCapabilities = 1;
+  BeginTakeReadings beginTakeReadings = 2;
+  QueryReadingStatus queryReadingStatus = 3;
+}
+
+message WireMessageReply {
+  Capabilities capabilities = 1;
+  SensorCapabilities sensorCapabilities = 2;
+  ReadingStatus readingStatus = 3;
+  SensorReadings sensorReadings = 4;
+}
