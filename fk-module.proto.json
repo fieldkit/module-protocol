@@ -2,6 +2,21 @@
   "nested": {
     "fk_module": {
       "nested": {
+        "QueryType": {
+          "values": {
+            "QUERY_NONE": 0,
+            "QUERY_CAPABILITIES": 1,
+            "QUERY_BEGIN_TAKE_READINGS": 2,
+            "QUERY_READING_STATUS": 3
+          }
+        },
+        "ReplyType": {
+          "values": {
+            "REPLY_NONE": 0,
+            "REPLY_CAPABILITIES": 1,
+            "REPLY_READING_STATUS": 2
+          }
+        },
         "ModuleType": {
           "values": {
             "SENSOR": 0,
@@ -110,37 +125,45 @@
         },
         "WireMessageQuery": {
           "fields": {
+            "type": {
+              "type": "QueryType",
+              "id": 1
+            },
             "queryCapabilities": {
               "type": "QueryCapabilities",
-              "id": 1
+              "id": 2
             },
             "beginTakeReadings": {
               "type": "BeginTakeReadings",
-              "id": 2
+              "id": 3
             },
             "queryReadingStatus": {
               "type": "QueryReadingStatus",
-              "id": 3
+              "id": 4
             }
           }
         },
         "WireMessageReply": {
           "fields": {
+            "type": {
+              "type": "ReplyType",
+              "id": 1
+            },
             "capabilities": {
               "type": "Capabilities",
-              "id": 1
+              "id": 2
             },
             "sensorCapabilities": {
               "type": "SensorCapabilities",
-              "id": 2
+              "id": 3
             },
             "readingStatus": {
               "type": "ReadingStatus",
-              "id": 3
+              "id": 4
             },
             "sensorReadings": {
               "type": "SensorReadings",
-              "id": 4
+              "id": 5
             }
           }
         }

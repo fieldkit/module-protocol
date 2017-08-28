@@ -1,6 +1,19 @@
 syntax = "proto3";
 package fk_module;
 
+enum QueryType {
+  QUERY_NONE = 0;
+  QUERY_CAPABILITIES = 1;
+  QUERY_BEGIN_TAKE_READINGS = 2;
+  QUERY_READING_STATUS = 3;
+}
+
+enum ReplyType {
+  REPLY_NONE = 0;
+  REPLY_CAPABILITIES = 1;
+  REPLY_READING_STATUS = 2;
+}
+
 enum ModuleType {
   SENSOR = 0;
   COMMUNICATIONS = 1;
@@ -55,14 +68,16 @@ message SensorReading  {
 }
 
 message WireMessageQuery {
-  QueryCapabilities queryCapabilities = 1;
-  BeginTakeReadings beginTakeReadings = 2;
-  QueryReadingStatus queryReadingStatus = 3;
+  QueryType type = 1;
+  QueryCapabilities queryCapabilities = 2;
+  BeginTakeReadings beginTakeReadings = 3;
+  QueryReadingStatus queryReadingStatus = 4;
 }
 
 message WireMessageReply {
-  Capabilities capabilities = 1;
-  SensorCapabilities sensorCapabilities = 2;
-  ReadingStatus readingStatus = 3;
-  SensorReadings sensorReadings = 4;
+  ReplyType type = 1;
+  Capabilities capabilities = 2;
+  SensorCapabilities sensorCapabilities = 3;
+  ReadingStatus readingStatus = 4;
+  SensorReadings sensorReadings = 5;
 }
