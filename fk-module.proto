@@ -10,8 +10,10 @@ enum QueryType {
 
 enum ReplyType {
   REPLY_NONE = 0;
-  REPLY_CAPABILITIES = 1;
-  REPLY_READING_STATUS = 2;
+  REPLY_RETRY = 1;
+  REPLY_ERROR = 2   ;
+  REPLY_CAPABILITIES = 3;
+  REPLY_READING_STATUS = 4;
 }
 
 enum ModuleType {
@@ -21,8 +23,9 @@ enum ModuleType {
 
 enum ReadingState {
   IDLE = 0;
-  BUSY = 1;
-  DONE = 2;
+  BEGIN = 1;
+  BUSY = 2;
+  DONE = 3;
 }
 
 message QueryCapabilities {
@@ -74,10 +77,22 @@ message WireMessageQuery {
   QueryReadingStatus queryReadingStatus = 4;
 }
 
+enum ErrorType {
+  NONE = 0;
+  GENERAL = 1;
+  UNEXPECTED = 2;
+}
+
+message Error {
+  ErrorType type = 1;
+  string message = 2;
+}
+
 message WireMessageReply {
   ReplyType type = 1;
-  Capabilities capabilities = 2;
-  SensorCapabilities sensorCapabilities = 3;
-  ReadingStatus readingStatus = 4;
-  SensorReadings sensorReadings = 5;
+  Error error = 2;
+  Capabilities capabilities = 3;
+  SensorCapabilities sensorCapabilities = 4;
+  ReadingStatus readingStatus = 5;
+  SensorReadings sensorReadings = 6;
 }
