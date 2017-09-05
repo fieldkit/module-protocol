@@ -112,12 +112,8 @@
         },
         "SensorReading": {
           "fields": {
-            "index": {
-              "type": "int32",
-              "id": 1
-            },
             "time": {
-              "type": "int64",
+              "type": "uint64",
               "id": 2
             },
             "value": {
