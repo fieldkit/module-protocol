@@ -61,13 +61,13 @@ message ReadingStatus {
 }
 
 message SensorReadings {
-  int64 time = 1;
   repeated SensorReading readings = 2;
 }
 
 message SensorReading  {
   int32 index = 1;
-  float value = 2;
+  int64 time = 2;
+  float value = 3;
 }
 
 message WireMessageQuery {
