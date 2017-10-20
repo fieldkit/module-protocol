@@ -4,8 +4,9 @@ package fk_module;
 enum QueryType {
   QUERY_NONE = 0;
   QUERY_CAPABILITIES = 1;
-  QUERY_BEGIN_TAKE_READINGS = 2;
-  QUERY_READING_STATUS = 3;
+  QUERY_SENSOR_CAPABILITIES = 2;
+  QUERY_BEGIN_TAKE_READINGS = 3;
+  QUERY_READING_STATUS = 4;
 }
 
 enum ReplyType {
@@ -30,24 +31,24 @@ enum ReadingState {
 
 message QueryCapabilities {
   int64 version = 1;
+  uint32 callerTime = 2;
+}
+
+message QuerySensorCapabilities {
+  int32 sensor = 2;
 }
 
 message Capabilities {
   int32 version = 1;
   ModuleType type = 2;
   string name = 3;
+  int32 numberOfSensors = 4;
 }
 
 message SensorCapabilities {
-  int32 numberOfReadings = 1;
-  repeated SensorReadingMeta readings = 2;
-}
-
-message SensorReadingMeta {
-  int32 index = 1;
+  int32 id = 1;
   string name = 2;
 }
-
 
 message BeginTakeReadings {
   int32 index = 1;
@@ -72,8 +73,9 @@ message SensorReading  {
 message WireMessageQuery {
   QueryType type = 1;
   QueryCapabilities queryCapabilities = 2;
-  BeginTakeReadings beginTakeReadings = 3;
-  QueryReadingStatus queryReadingStatus = 4;
+  QuerySensorCapabilities querySensorCapabilities = 3;
+  BeginTakeReadings beginTakeReadings = 4;
+  QueryReadingStatus queryReadingStatus = 5;
 }
 
 enum ErrorType {
