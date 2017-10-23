@@ -37,7 +37,7 @@
         "QueryCapabilities": {
           "fields": {
             "version": {
-              "type": "int64",
+              "type": "int32",
               "id": 1
             },
             "callerTime": {
@@ -50,7 +50,7 @@
           "fields": {
             "sensor": {
               "type": "int32",
-              "id": 2
+              "id": 1
             }
           }
         },
@@ -106,18 +106,16 @@
           }
         },
         "SensorReadings": {
-          "fields": {
-            "readings": {
-              "rule": "repeated",
-              "type": "SensorReading",
-              "id": 2
-            }
-          }
+          "fields": {}
         },
         "SensorReading": {
           "fields": {
+            "sensor": {
+              "type": "int32",
+              "id": 1
+            },
             "time": {
-              "type": "uint64",
+              "type": "uint32",
               "id": 2
             },
             "value": {
@@ -191,8 +189,8 @@
               "type": "ReadingStatus",
               "id": 5
             },
-            "sensorReadings": {
-              "type": "SensorReadings",
+            "sensorReading": {
+              "type": "SensorReading",
               "id": 6
             }
           }

@@ -30,12 +30,12 @@ enum ReadingState {
 }
 
 message QueryCapabilities {
-  int64 version = 1;
+  int32 version = 1;
   uint32 callerTime = 2;
 }
 
 message QuerySensorCapabilities {
-  int32 sensor = 2;
+  int32 sensor = 1;
 }
 
 message Capabilities {
@@ -62,11 +62,11 @@ message ReadingStatus {
 }
 
 message SensorReadings {
-  repeated SensorReading readings = 2;
 }
 
 message SensorReading  {
-  uint64 time = 2;
+  int32 sensor = 1;
+  uint32 time = 2;
   float value = 3;
 }
 
@@ -95,5 +95,5 @@ message WireMessageReply {
   Capabilities capabilities = 3;
   SensorCapabilities sensorCapabilities = 4;
   ReadingStatus readingStatus = 5;
-  SensorReadings sensorReadings = 6;
+  SensorReading sensorReading = 6;
 }
