@@ -48,6 +48,7 @@ message Capabilities {
 message SensorCapabilities {
   int32 id = 1;
   string name = 2;
+  string unitOfMeasure = 3;
 }
 
 message BeginTakeReadings {
