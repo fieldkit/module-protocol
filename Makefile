@@ -11,3 +11,5 @@ src/fk-module.pb.c src/fk-module.pb.h: fk-module.proto
 
 fk-module.pb.go: fk-module.proto
 	protoc --go_out=./ fk-module.proto
+
+clean:
