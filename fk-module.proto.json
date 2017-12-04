@@ -17,7 +17,8 @@
             "REPLY_RETRY": 1,
             "REPLY_ERROR": 2,
             "REPLY_CAPABILITIES": 3,
-            "REPLY_READING_STATUS": 4
+            "REPLY_SENSOR_CAPABILITIES": 4,
+            "REPLY_READING_STATUS": 5
           }
         },
         "ModuleType": {
