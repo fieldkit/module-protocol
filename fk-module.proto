@@ -61,6 +61,7 @@ message QueryReadingStatus {
 
 message ReadingStatus {
   ReadingState state = 1;
+  uint32 millisRemaining = 2;
 }
 
 message SensorReadings {

@@ -107,6 +107,10 @@
             "state": {
               "type": "ReadingState",
               "id": 1
+            },
+            "millisRemaining": {
+              "type": "uint32",
+              "id": 2
             }
           }
         },
