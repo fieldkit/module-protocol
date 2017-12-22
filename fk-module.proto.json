@@ -108,7 +108,7 @@
               "type": "ReadingState",
               "id": 1
             },
-            "millisRemaining": {
+            "backoff": {
               "type": "uint32",
               "id": 2
             }
