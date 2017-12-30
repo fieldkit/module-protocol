@@ -63,6 +63,7 @@ message QueryReadingStatus {
 message ReadingStatus {
   ReadingState state = 1;
   uint32 backoff = 2;
+  uint32 elapsed = 3;
 }
 
 message SensorReadings {
