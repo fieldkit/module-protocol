@@ -7,6 +7,7 @@ enum QueryType {
   QUERY_SENSOR_CAPABILITIES = 2;
   QUERY_BEGIN_TAKE_READINGS = 3;
   QUERY_READING_STATUS = 4;
+  QUERY_CUSTOM = 5;
 }
 
 enum ReplyType {
@@ -16,6 +17,7 @@ enum ReplyType {
   REPLY_CAPABILITIES = 3;
   REPLY_SENSOR_CAPABILITIES = 4;
   REPLY_READING_STATUS = 5;
+  REPLY_CUSTOM = 6;
 }
 
 enum ModuleType {
@@ -75,12 +77,17 @@ message SensorReading  {
   float value = 3;
 }
 
+message Custom {
+  bytes message = 1;
+}
+
 message WireMessageQuery {
   QueryType type = 1;
   QueryCapabilities queryCapabilities = 2;
   QuerySensorCapabilities querySensorCapabilities = 3;
   BeginTakeReadings beginTakeReadings = 4;
   QueryReadingStatus queryReadingStatus = 5;
+  Custom custom = 6;
 }
 
 enum ErrorType {
@@ -101,4 +108,5 @@ message WireMessageReply {
   SensorCapabilities sensorCapabilities = 4;
   ReadingStatus readingStatus = 5;
   SensorReading sensorReading = 6;
+  Custom custom = 7;
 }

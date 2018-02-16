@@ -8,7 +8,8 @@
             "QUERY_CAPABILITIES": 1,
             "QUERY_SENSOR_CAPABILITIES": 2,
             "QUERY_BEGIN_TAKE_READINGS": 3,
-            "QUERY_READING_STATUS": 4
+            "QUERY_READING_STATUS": 4,
+            "QUERY_CUSTOM": 5
           }
         },
         "ReplyType": {
@@ -18,7 +19,8 @@
             "REPLY_ERROR": 2,
             "REPLY_CAPABILITIES": 3,
             "REPLY_SENSOR_CAPABILITIES": 4,
-            "REPLY_READING_STATUS": 5
+            "REPLY_READING_STATUS": 5,
+            "REPLY_CUSTOM": 6
           }
         },
         "ModuleType": {
@@ -141,6 +143,14 @@
             }
           }
         },
+        "Custom": {
+          "fields": {
+            "message": {
+              "type": "bytes",
+              "id": 1
+            }
+          }
+        },
         "WireMessageQuery": {
           "fields": {
             "type": {
@@ -162,6 +172,10 @@
             "queryReadingStatus": {
               "type": "QueryReadingStatus",
               "id": 5
+            },
+            "custom": {
+              "type": "Custom",
+              "id": 6
             }
           }
         },
@@ -209,6 +223,10 @@
             "sensorReading": {
               "type": "SensorReading",
               "id": 6
+            },
+            "custom": {
+              "type": "Custom",
+              "id": 7
             }
           }
         }
