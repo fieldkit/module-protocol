@@ -8,16 +8,22 @@ enum QueryType {
   QUERY_BEGIN_TAKE_READINGS = 3;
   QUERY_READING_STATUS = 4;
   QUERY_CUSTOM = 5;
+  QUERY_DATA_APPEND = 6;
+  QUERY_DATA_CLEAR = 7;
+  QUERY_BEGIN_TRANSMISSION = 8;
+  QUERY_TRANSMISSION_STATUS = 9;
 }
 
 enum ReplyType {
   REPLY_NONE = 0;
   REPLY_RETRY = 1;
-  REPLY_ERROR = 2   ;
+  REPLY_ERROR = 2;
   REPLY_CAPABILITIES = 3;
   REPLY_SENSOR_CAPABILITIES = 4;
   REPLY_READING_STATUS = 5;
   REPLY_CUSTOM = 6;
+  REPLY_DATA = 7;
+  REPLY_TRANSMISSION_STATUS = 8;
 }
 
 enum ModuleType {
@@ -81,13 +87,46 @@ message Custom {
   bytes message = 1;
 }
 
+message Data {
+  int32 size = 1;
+  bytes data = 2;
+}
+
+message DataStatus {
+  int32 size = 1;
+}
+
+message BeginTransmission {
+  int32 kind = 1;
+}
+
+message QueryTransmissionStatus {
+}
+
+enum TransmissionState {
+  TRANSMISSION_IDLE = 0;
+  TRANSMISSION_BEGIN = 1;
+  TRANSMISSION_BUSY = 2;
+  TRANSMISSION_DONE = 3;
+}
+
+message TransmissionStatus {
+  TransmissionState state = 1;
+}
+
 message WireMessageQuery {
   QueryType type = 1;
   QueryCapabilities queryCapabilities = 2;
+
   QuerySensorCapabilities querySensorCapabilities = 3;
   BeginTakeReadings beginTakeReadings = 4;
   QueryReadingStatus queryReadingStatus = 5;
+
   Custom custom = 6;
+  Data data = 7;
+
+  BeginTransmission beginTransmission = 8;
+  QueryTransmissionStatus queryTransmissionStatus = 9;
 }
 
 enum ErrorType {
@@ -109,4 +148,6 @@ message WireMessageReply {
   ReadingStatus readingStatus = 5;
   SensorReading sensorReading = 6;
   Custom custom = 7;
+  DataStatus data = 8;
+  TransmissionStatus transmissionStatus = 9;
 }

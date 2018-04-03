@@ -9,7 +9,11 @@
             "QUERY_SENSOR_CAPABILITIES": 2,
             "QUERY_BEGIN_TAKE_READINGS": 3,
             "QUERY_READING_STATUS": 4,
-            "QUERY_CUSTOM": 5
+            "QUERY_CUSTOM": 5,
+            "QUERY_DATA_APPEND": 6,
+            "QUERY_DATA_CLEAR": 7,
+            "QUERY_BEGIN_TRANSMISSION": 8,
+            "QUERY_TRANSMISSION_STATUS": 9
           }
         },
         "ReplyType": {
@@ -20,7 +24,9 @@
             "REPLY_CAPABILITIES": 3,
             "REPLY_SENSOR_CAPABILITIES": 4,
             "REPLY_READING_STATUS": 5,
-            "REPLY_CUSTOM": 6
+            "REPLY_CUSTOM": 6,
+            "REPLY_DATA": 7,
+            "REPLY_TRANSMISSION_STATUS": 8
           }
         },
         "ModuleType": {
@@ -151,6 +157,53 @@
             }
           }
         },
+        "Data": {
+          "fields": {
+            "size": {
+              "type": "int32",
+              "id": 1
+            },
+            "data": {
+              "type": "bytes",
+              "id": 2
+            }
+          }
+        },
+        "DataStatus": {
+          "fields": {
+            "size": {
+              "type": "int32",
+              "id": 1
+            }
+          }
+        },
+        "BeginTransmission": {
+          "fields": {
+            "kind": {
+              "type": "int32",
+              "id": 1
+            }
+          }
+        },
+        "QueryTransmissionStatus": {
+          "fields": {}
+        },
+        "TransmissionState": {
+          "values": {
+            "TRANSMISSION_IDLE": 0,
+            "TRANSMISSION_BEGIN": 1,
+            "TRANSMISSION_BUSY": 2,
+            "TRANSMISSION_DONE": 3
+          }
+        },
+        "TransmissionStatus": {
+          "fields": {
+            "state": {
+              "type": "TransmissionState",
+              "id": 1
+            }
+          }
+        },
         "WireMessageQuery": {
           "fields": {
             "type": {
@@ -176,6 +229,18 @@
             "custom": {
               "type": "Custom",
               "id": 6
+            },
+            "data": {
+              "type": "Data",
+              "id": 7
+            },
+            "beginTransmission": {
+              "type": "BeginTransmission",
+              "id": 8
+            },
+            "queryTransmissionStatus": {
+              "type": "QueryTransmissionStatus",
+              "id": 9
             }
           }
         },
@@ -227,6 +292,14 @@
             "custom": {
               "type": "Custom",
               "id": 7
+            },
+            "data": {
+              "type": "DataStatus",
+              "id": 8
+            },
+            "transmissionStatus": {
+              "type": "TransmissionStatus",
+              "id": 9
             }
           }
         }
