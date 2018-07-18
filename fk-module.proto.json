@@ -108,11 +108,20 @@
             "callerTime": {
               "type": "uint32",
               "id": 2
+            },
+            "number": {
+              "type": "uint32",
+              "id": 3
             }
           }
         },
         "QueryReadingStatus": {
-          "fields": {}
+          "fields": {
+            "sleep": {
+              "type": "uint32",
+              "id": 1
+            }
+          }
         },
         "ReadingStatus": {
           "fields": {

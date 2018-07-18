@@ -63,9 +63,11 @@ message SensorCapabilities {
 message BeginTakeReadings {
   int32 index = 1;
   uint32 callerTime = 2;
+  uint32 number = 3;
 }
 
 message QueryReadingStatus {
+  uint32 sleep = 1;
 }
 
 message ReadingStatus {
