@@ -47,11 +47,17 @@ message QuerySensorCapabilities {
   int32 sensor = 1;
 }
 
+message Firmware {
+  string git = 1;
+  string build = 2;
+}
+
 message Capabilities {
   int32 version = 1;
   ModuleType type = 2;
   string name = 3;
   int32 numberOfSensors = 4;
+  Firmware firmware = 5;
 }
 
 message SensorCapabilities {

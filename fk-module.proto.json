@@ -63,6 +63,18 @@
             }
           }
         },
+        "Firmware": {
+          "fields": {
+            "git": {
+              "type": "string",
+              "id": 1
+            },
+            "build": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
         "Capabilities": {
           "fields": {
             "version": {
@@ -80,6 +92,10 @@
             "numberOfSensors": {
               "type": "int32",
               "id": 4
+            },
+            "firmware": {
+              "type": "Firmware",
+              "id": 5
             }
           }
         },
