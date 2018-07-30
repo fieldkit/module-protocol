@@ -56,8 +56,10 @@ message Capabilities {
   int32 version = 1;
   ModuleType type = 2;
   string name = 3;
+  string module = 7;
   int32 numberOfSensors = 4;
   Firmware firmware = 5;
+  int32 minimumNumberOfReadings = 6;
 }
 
 message SensorCapabilities {
