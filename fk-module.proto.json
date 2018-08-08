@@ -13,7 +13,8 @@
             "QUERY_DATA_APPEND": 6,
             "QUERY_DATA_CLEAR": 7,
             "QUERY_BEGIN_TRANSMISSION": 8,
-            "QUERY_TRANSMISSION_STATUS": 9
+            "QUERY_TRANSMISSION_STATUS": 9,
+            "QUERY_DATA_PREPARE": 10
           }
         },
         "ReplyType": {
@@ -199,6 +200,10 @@
             "data": {
               "type": "bytes",
               "id": 2
+            },
+            "kind": {
+              "type": "int32",
+              "id": 3
             }
           }
         },

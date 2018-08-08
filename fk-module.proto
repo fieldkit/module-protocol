@@ -12,6 +12,7 @@ enum QueryType {
   QUERY_DATA_CLEAR = 7;
   QUERY_BEGIN_TRANSMISSION = 8;
   QUERY_TRANSMISSION_STATUS = 9;
+  QUERY_DATA_PREPARE = 10;
 }
 
 enum ReplyType {
@@ -100,6 +101,7 @@ message Custom {
 message Data {
   int32 size = 1;
   bytes data = 2;
+  int32 kind = 3;
 }
 
 message DataStatus {
