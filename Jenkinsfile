@@ -1,7 +1,12 @@
 @Library('conservify') _
 
+properties([
+    [$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '5']],
+    pipelineTriggers([[$class: 'GitHubPushTrigger']]),
+])
+
 timestamps {
     node () {
-        conservifyBuild(name: 'module-protocol', repository: 'https://github.com/fieldkit/module-protocol.git', archive: false)
+        conservifyBuild(name: 'module-protocol', archive: false)
     }
 }
