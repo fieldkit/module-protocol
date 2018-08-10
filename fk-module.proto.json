@@ -14,7 +14,8 @@
             "QUERY_DATA_CLEAR": 7,
             "QUERY_BEGIN_TRANSMISSION": 8,
             "QUERY_TRANSMISSION_STATUS": 9,
-            "QUERY_DATA_PREPARE": 10
+            "QUERY_DATA_PREPARE": 10,
+            "QUERY_DATA_VERIFY": 11
           }
         },
         "ReplyType": {
@@ -204,6 +205,10 @@
             "kind": {
               "type": "int32",
               "id": 3
+            },
+            "checksum": {
+              "type": "bytes",
+              "id": 4
             }
           }
         },
