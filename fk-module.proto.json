@@ -28,7 +28,8 @@
             "REPLY_READING_STATUS": 5,
             "REPLY_CUSTOM": 6,
             "REPLY_DATA": 7,
-            "REPLY_TRANSMISSION_STATUS": 8
+            "REPLY_TRANSMISSION_STATUS": 8,
+            "REPLY_SUCCESS": 9
           }
         },
         "ModuleType": {
