@@ -210,6 +210,14 @@
             "checksum": {
               "type": "bytes",
               "id": 4
+            },
+            "bank": {
+              "type": "int32",
+              "id": 5
+            },
+            "etag": {
+              "type": "string",
+              "id": 6
             }
           }
         },

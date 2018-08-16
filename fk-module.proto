@@ -105,6 +105,8 @@ message Data {
   bytes data = 2;
   int32 kind = 3;
   bytes checksum = 4;
+  int32 bank = 5;
+  string etag = 6;
 }
 
 message DataStatus {
