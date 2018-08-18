@@ -14,6 +14,7 @@ enum QueryType {
   QUERY_TRANSMISSION_STATUS = 9;
   QUERY_DATA_PREPARE = 10;
   QUERY_DATA_VERIFY = 11;
+  QUERY_FIRMWARE = 12;
 }
 
 enum ReplyType {
@@ -28,6 +29,7 @@ enum ReplyType {
   REPLY_TRANSMISSION_STATUS = 8;
   REPLY_SUCCESS = 9;
   REPLY_BUSY = 10;
+  REPLY_FIRMWARE = 11;
 }
 
 enum ModuleType {
@@ -54,6 +56,9 @@ message QuerySensorCapabilities {
 message Firmware {
   string git = 1;
   string build = 2;
+  uint32 size = 3;
+  string etag = 4;
+  uint32 time = 5;
 }
 
 message Capabilities {
@@ -64,6 +69,12 @@ message Capabilities {
   int32 numberOfSensors = 4;
   Firmware firmware = 5;
   int32 minimumNumberOfReadings = 6;
+}
+
+message FirmwareReply {
+  Firmware good = 1;
+  Firmware pending = 2;
+  Firmware active = 3;
 }
 
 message SensorCapabilities {
@@ -168,4 +179,5 @@ message WireMessageReply {
   Custom custom = 7;
   DataStatus data = 8;
   TransmissionStatus transmissionStatus = 9;
+  FirmwareReply firmware = 10;
 }

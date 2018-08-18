@@ -15,7 +15,8 @@
             "QUERY_BEGIN_TRANSMISSION": 8,
             "QUERY_TRANSMISSION_STATUS": 9,
             "QUERY_DATA_PREPARE": 10,
-            "QUERY_DATA_VERIFY": 11
+            "QUERY_DATA_VERIFY": 11,
+            "QUERY_FIRMWARE": 12
           }
         },
         "ReplyType": {
@@ -30,7 +31,8 @@
             "REPLY_DATA": 7,
             "REPLY_TRANSMISSION_STATUS": 8,
             "REPLY_SUCCESS": 9,
-            "REPLY_BUSY": 10
+            "REPLY_BUSY": 10,
+            "REPLY_FIRMWARE": 11
           }
         },
         "ModuleType": {
@@ -76,6 +78,18 @@
             "build": {
               "type": "string",
               "id": 2
+            },
+            "size": {
+              "type": "uint32",
+              "id": 3
+            },
+            "etag": {
+              "type": "string",
+              "id": 4
+            },
+            "time": {
+              "type": "uint32",
+              "id": 5
             }
           }
         },
@@ -108,6 +122,22 @@
             "minimumNumberOfReadings": {
               "type": "int32",
               "id": 6
+            }
+          }
+        },
+        "FirmwareReply": {
+          "fields": {
+            "good": {
+              "type": "Firmware",
+              "id": 1
+            },
+            "pending": {
+              "type": "Firmware",
+              "id": 2
+            },
+            "active": {
+              "type": "Firmware",
+              "id": 3
             }
           }
         },
@@ -353,6 +383,10 @@
             "transmissionStatus": {
               "type": "TransmissionStatus",
               "id": 9
+            },
+            "firmware": {
+              "type": "FirmwareReply",
+              "id": 10
             }
           }
         }
