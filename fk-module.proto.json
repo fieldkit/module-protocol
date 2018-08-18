@@ -29,7 +29,8 @@
             "REPLY_CUSTOM": 6,
             "REPLY_DATA": 7,
             "REPLY_TRANSMISSION_STATUS": 8,
-            "REPLY_SUCCESS": 9
+            "REPLY_SUCCESS": 9,
+            "REPLY_BUSY": 10
           }
         },
         "ModuleType": {
