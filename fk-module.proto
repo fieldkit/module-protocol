@@ -69,6 +69,7 @@ message Capabilities {
   int32 numberOfSensors = 4;
   Firmware firmware = 5;
   int32 minimumNumberOfReadings = 6;
+  uint32 compiled = 8;
 }
 
 message FirmwareReply {
