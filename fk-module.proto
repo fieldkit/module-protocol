@@ -44,6 +44,11 @@ enum ReadingState {
   DONE = 3;
 }
 
+enum RequiredUptime {
+  ALWAYS = 0;
+  READINGS_ONLY = 1;
+}
+
 message QueryCapabilities {
   int32 version = 1;
   uint32 callerTime = 2;
@@ -70,6 +75,7 @@ message Capabilities {
   Firmware firmware = 5;
   int32 minimumNumberOfReadings = 6;
   uint32 compiled = 8;
+  RequiredUptime requiredUptime = 9;
 }
 
 message FirmwareReply {

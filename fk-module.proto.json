@@ -49,6 +49,12 @@
             "DONE": 3
           }
         },
+        "RequiredUptime": {
+          "values": {
+            "ALWAYS": 0,
+            "READINGS_ONLY": 1
+          }
+        },
         "QueryCapabilities": {
           "fields": {
             "version": {
@@ -126,6 +132,10 @@
             "compiled": {
               "type": "uint32",
               "id": 8
+            },
+            "requiredUptime": {
+              "type": "RequiredUptime",
+              "id": 9
             }
           }
         },
