@@ -136,6 +136,10 @@
             "requiredUptime": {
               "type": "RequiredUptime",
               "id": 9
+            },
+            "minimumReadingInterval": {
+              "type": "uint32",
+              "id": 10
             }
           }
         },
